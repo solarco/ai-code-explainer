@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CodeSpeak!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: #4CAF50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+        .step-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-right: 20px;
+            min-width: 50px;
+            text-align: center;
+        }
+        .step-content h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .step-content p {
+            margin: 0;
+            color: #666;
+        }
+        .highlight {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #4CAF50;
+        }
+        .actions {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        .btn-secondary {
+            background: #2196F3;
+        }
+        .btn-secondary:hover {
+            background: #1976D2;
+        }
+        .code-example {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        kbd {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Welcome to CodeSpeak!</h1>
+            <p>AI Code Explainer & Speaker</p>
+        </div>
+        
+        <div class="content">
+            <p style="font-size: 1.2em; text-align: center; margin-bottom: 30px;">
+                Get instant AI explanations for any code snippet - just select and explain!
+            </p>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Select Code</h3>
+                    <p>Highlight any code snippet on a webpage using your mouse</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Explain It</h3>
+                    <p><strong>Method 1:</strong> Right-click and choose "AI Explain & Speak Code"</p>
+                    <p><strong>Method 2:</strong> Click the green 🤖 button that appears</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Learn & Listen</h3>
+                    <p>View the explanation and optionally listen to it with text-to-speech</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>💡 Pro Tips:</h3>
+                <ul>
+                    <li><strong>Keyboard Shortcut:</strong> Press <kbd>Ctrl+Shift+X</kbd> (or <kbd>Cmd+Shift+X</kbd> on Mac) after selecting code</li>
+                    <li><strong>Settings:</strong> Click the extension icon to access settings and usage</li>
+                    <li><strong>Follow-up Questions:</strong> Ask additional questions about the same code</li>
+                    <li><strong>Auto-Speak:</strong> Enable automatic speech in settings</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h3>🔧 Try It Now:</h3>
+                <p>Select this example code and try explaining it:</p>
+                <div class="code-example">
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(n => n * 2);
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button class="btn" onclick="openSettings()">Open Settings</button>
+            <button class="btn btn-secondary" onclick="window.close()">Start Using CodeSpeak</button>
+        </div>
+    </div>
+
+    <script>
+        function openSettings() {
+            if (chrome.runtime && chrome.sidePanel) {
+                chrome.sidePanel.open().then(() => {
+                    window.close();
+                }).catch(() => {
+                    window.close();
+                });
+            } else {
+                window.close();
+            }
+        }
+    </script>
+</body>
+</html>
